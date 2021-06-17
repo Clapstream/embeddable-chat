@@ -39,7 +39,7 @@ FKChat('#chatBox', {
 })
 ```
 
-As the user navigates around in your SPA, you may want to set the room. To do this, simply use the setRoom function:
+As the user navigates around in your single-page app, you may want to update their room. To do this, simply use the setRoom function:
 
 ```JavaScript
   setRoom('Rock Arena')
@@ -70,6 +70,11 @@ If you don't already have an accessToken, [reach out to us](mailto:hello@clapstr
 |-------------|----------------------------------------|-------------|
 |`name`| `string`                        | The name of the logged in user |
 |`uid`| `string`                        | The unique identifier for the logged in user. |
+
+### setRoom
+| Option      | Type                                   | Description |
+|-------------|----------------------------------------|-------------|
+|`name`| `string`                        | The name of the room to be shown on the user's chat messages |
 
 ## License
 >You can check out the full license [here](https://github.com/clapstream/embeddable-chat/blob/main/LICENSE)
