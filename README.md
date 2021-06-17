@@ -25,7 +25,7 @@ import { FKChat, setRoom } from '@festkit/embeddable-chat'
 ```
 You need to provide a container into which the chat widget can be rendered.
 
-The widget is transparent and doesn't set it's own background color. You will need to set a background color or gradient on the container element if required.
+The widget is transparent and doesn't set its own background color. You will need to set a background color or gradient on the container element if required.
 
 To set up the chat widget:
 
@@ -72,6 +72,6 @@ If you don't already have an accessToken, [reach out to us](mailto:hello@clapstr
 |`uid`| `string`                        | The unique identifier for the logged in user. |
 
 ## License
->You can check out the full license [here](https://github.com/clapstream/embeddable-chat/blob/master/LICENSE)
+>You can check out the full license [here](https://github.com/clapstream/embeddable-chat/blob/main/LICENSE)
 
 This project is licensed under the terms of the **ISC** license.
