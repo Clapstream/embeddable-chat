@@ -1,6 +1,6 @@
 # Festkit Embeddable Chat
 
-[Usage Screenshot](https://i.imgur.com/x0Vv5Wx.png)
+![Usage Screenshot](https://i.imgur.com/x0Vv5Wx.png)
 
 ## Installation
 

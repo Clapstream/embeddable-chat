@@ -54,7 +54,7 @@ const _message = (message: frameMessage) => {
     return
   }
 
-  frame.contentWindow.postMessage(message, 'http://localhost:3000')
+  frame.contentWindow.postMessage(message, 'https://embeddable-chat.vercel.app')
 }
 
 const _getFrameParams = () => {
@@ -73,7 +73,7 @@ const _getFrameParams = () => {
 const _appendIFrame = () => {
   frame = document.createElement('iframe')
 
-  frame.src = 'http://localhost:3000?' + _getFrameParams()
+  frame.src = 'https://embeddable-chat.vercel.app?' + _getFrameParams()
 
   frame.style.backgroundColor = 'transparent'
   frame.style.width = '100%'
