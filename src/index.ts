@@ -1,4 +1,5 @@
 type options = {
+  accessKey: string,
   sessionToken: string,
   room?: string,
   theme?: string,
@@ -18,7 +19,8 @@ type frameMessage = {
 }
 
 let containerElement: HTMLElement,
-  token: string,
+  accessKey: string,
+  sessionToken: string,
   room: string,
   theme: string,
   presentation: string,
@@ -59,7 +61,8 @@ const _message = (message: frameMessage) => {
 
 const _getFrameParams = () => {
   const params = {
-    token,
+    token: sessionToken,
+    key: accessKey,
     uid: user.uid,
     name: user.name,
     theme,
@@ -80,8 +83,8 @@ const _appendIFrame = () => {
   frame.style.height = '100%'
 
   window.addEventListener('message', event => {
-    if (!(event.source instanceof MessagePort) && !(event.source instanceof ServiceWorker)) {
-      const source: WindowProxy | null = event.source
+    if (!(event.source instanceof MessagePort)) {
+      const source: WindowProxy | null | ServiceWorker = event.source
       if (source !== frame.contentWindow) return
 
       _onMessage(event.data)
@@ -120,6 +123,18 @@ const FKChat = (
     containerElement = element
   }
 
+  if (typeof options.headCountElement === 'string') {
+    const el: HTMLElement | null = document.querySelector(options.headCountElement)
+
+    if (el === null) {
+      throw new Error('headCountElement provided is not a valid DOM Element.')
+    }
+
+    headCountElement = el
+  } else if (element instanceof HTMLElement) {
+    headCountElement = element
+  }
+
   if (!options.sessionToken) {
     throw new Error('Please provide a valid session token.')
   }
@@ -128,15 +143,12 @@ const FKChat = (
     throw new Error('User\'s name or uid is not valid')
   }
 
-  token = options.sessionToken
+  sessionToken = options.sessionToken
+  accessKey = options.accessKey
   room = options.room ? options.room : 'Home'
   theme = options.theme ? options.theme : 'dark'
   presentation = options.presentation ? options.presentation : 'cards'
   user = options.user
-
-  if (options.headCountElement) {
-    headCountElement = options.headCountElement
-  }
 
   _appendIFrame()
 }
