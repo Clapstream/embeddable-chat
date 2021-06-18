@@ -18,16 +18,15 @@ npm install @festkit/embeddable-chat
 
 ## Usage
 
-Import the chat widget setup function and 
+Import the setup function and (optionally) the setRoom function:
 
 ```JavaScript
 import { FKChat, setRoom } from '@festkit/embeddable-chat'
 ```
-You need to provide a container into which the chat widget can be rendered.
 
-The widget is transparent and doesn't set its own background color. You will need to set a background color or gradient on the container element if required.
+The widget is transparent and doesn't set its own background color. If you're overlaying the widget over some content, you will need to set a background color or gradient on its container element.
 
-To set up the chat widget:
+To set up the widget:
 
 ```JavaScript
 FKChat('#chatBox', {
@@ -52,31 +51,31 @@ If you don't already have an accessToken, [reach out to us](mailto:hello@clapstr
 ### FKChat
 | Option  | Type                      | Description |
 |---------|---------------------------|-------------|
-|`element`| `HTMLElement` or CSS selector `string` | The container in which the chat widget should be rendered |
-|`options`| `FKChatOptions`           | A set of config options (see writeup below) 
+|`element`| `HTMLElement` or CSS selector `string` | The container in which the chat widget should be rendered. |
+|`options`| `FKChatOptions`           | A set of config options (see writeup below). |
 
 
 ### FKChatOptions
 | Option      | Type                                   | Description |
 |-------------|----------------------------------------|-------------|
-|`accessToken`| `string` | The access token provided to you by Clapstream |
+|`accessToken`| `string` | The access token provided to you by Clapstream. |
 |`presentation`| `string`                        | The kind of design to use for showing chat messages. Can be set to `cards` or `compact` (default: `cards`). |
 |`room`| `string`                        | The initial room to show on the user's chat messages (default: `Home`). |
-|`theme`| `string`                        | Is the widget being shown against a dark background or a light background? (Default: `light`)  |
+|`theme`| `string`                        | Is the widget being shown against a dark background or a light background? (Default: `light`).  |
 |`user`| `UserDetails`                        | The details for the logged in user (see writeup below). |
 
 ### UserDetails
 | Option      | Type                                   | Description |
 |-------------|----------------------------------------|-------------|
-|`name`| `string`                        | The name of the logged in user |
+|`name`| `string`                        | The name of the logged in user, shown on chat messages. |
 |`uid`| `string`                        | The unique identifier for the logged in user. |
 
 ### setRoom
 | Option      | Type                                   | Description |
 |-------------|----------------------------------------|-------------|
-|`name`| `string`                        | The name of the room to be shown on the user's chat messages |
+|`name`| `string`                        | The name of the room to be shown on the user's chat messages. |
 
 ## License
 >You can check out the full license [here](https://github.com/clapstream/embeddable-chat/blob/main/LICENSE)
 
-This project is licensed under the terms of the **ISC** license.
+This project is licensed under the terms of the ISC license.
