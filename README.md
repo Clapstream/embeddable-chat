@@ -30,7 +30,7 @@ To set up the widget:
 
 ```JavaScript
 FKChat('#chatBox', {
-  accessToken: '<your access token>',
+  sessionToken: '<your session token>',
   user: {
     name: '<the users name>', // to be displayed on the chat message
     uid: '<the users id>' // the unique id for the user.
@@ -44,7 +44,31 @@ As the user navigates around in your single-page app, you may want to update the
   setRoom('Rock Arena')
 ```
 
-If you don't already have an accessToken, [reach out to us](mailto:hello@clapstream.com) to get your token.
+You can generate a session token for your user by making a `GET` request from your backend to `https://embeddable-chat.vercel.app/token` with your Access Key and Secret.
+
+### Getting a session token
+Make the following request from your backend:
+
+`POST` `https://embeddable-chat.vercel.app/token`
+
+#### Headers:
+
+|Header|Value|
+|------|-----|
+|`Accept`|`application/json`|
+|`Content-Type`|`application/json`|
+
+#### Body:
+```JSON
+{
+  "key": "<your access key>",
+  "secret": "<your access secret>",
+  "uid": "<the user's unique ID on your system>"
+}
+```
+
+
+[Reach out to us](mailto:hello@clapstream.com) to get an Access Key and Secret for your project.
 
 ## API
 
@@ -58,7 +82,7 @@ If you don't already have an accessToken, [reach out to us](mailto:hello@clapstr
 ### FKChatOptions
 | Option      | Type                                   | Description |
 |-------------|----------------------------------------|-------------|
-|`accessToken`| `string` | The access token provided to you by Clapstream. |
+|`token`| `string` | The session token from `https://embeddable-chat.vercel.app/token`. |
 |`presentation`| `string`                        | The kind of design to use for showing chat messages. Can be set to `cards` or `compact` (default: `cards`). |
 |`room`| `string`                        | The initial room to show on the user's chat messages (default: `Home`). |
 |`theme`| `string`                        | Is the widget being shown against a dark background or a light background? (Default: `light`).  |

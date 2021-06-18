@@ -1,5 +1,5 @@
 type options = {
-  accessToken: string,
+  sessionToken: string,
   room?: string,
   theme?: string,
   presentation?: string,
@@ -18,7 +18,7 @@ type frameMessage = {
 }
 
 let containerElement: HTMLElement,
-  accessToken: string,
+  token: string,
   room: string,
   theme: string,
   presentation: string,
@@ -59,7 +59,7 @@ const _message = (message: frameMessage) => {
 
 const _getFrameParams = () => {
   const params = {
-    accessToken,
+    token,
     uid: user.uid,
     name: user.name,
     theme,
@@ -120,15 +120,15 @@ const FKChat = (
     containerElement = element
   }
 
-  if (!options.accessToken) {
-    throw new Error('Please provide a valid access token.')
+  if (!options.sessionToken) {
+    throw new Error('Please provide a valid session token.')
   }
 
   if (!options.user || !options.user.name || !options.user.uid) {
     throw new Error('User\'s name or uid is not valid')
   }
 
-  accessToken = options.accessToken
+  token = options.sessionToken
   room = options.room ? options.room : 'Home'
   theme = options.theme ? options.theme : 'dark'
   presentation = options.presentation ? options.presentation : 'cards'
