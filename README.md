@@ -45,7 +45,7 @@ As the user navigates around in your single-page app, you may want to update the
   setRoom('Rock Arena')
 ```
 
-You can generate a session token for your user by making a `GET` request from your backend to `https://embeddable-chat.vercel.app/token` with your Access Key and Secret.
+You can generate a session token for your user by making a request to `https://embeddable-chat.vercel.app/token` with your Access Key and Secret.
 
 ### Getting a session token
 To get a session token, make the following request from your backend:
